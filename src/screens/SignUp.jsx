@@ -17,7 +17,7 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8000/user/signup", {
+            const response = await axios.post("https://todo-server-urcf.onrender.com/user/signup", {
                 username,
                 email,
                 password

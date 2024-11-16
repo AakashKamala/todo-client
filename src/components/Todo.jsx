@@ -425,7 +425,7 @@ const Todo = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/todo/gettodo", {
+      const response = await axios.get("https://todo-server-urcf.onrender.com/todo/gettodo", {
         headers: { Authorization: `Bearer ${authToken}` }
       });
       setTodos(response.data.todos);
@@ -475,7 +475,7 @@ const Todo = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        const response = await axios.post("http://localhost:8000/todo/updatetodo", 
+        const response = await axios.post("https://todo-server-urcf.onrender.com/todo/updatetodo", 
           { ...formData, id: editingId },
           { headers: { Authorization: `Bearer ${authToken}` }}
         );
@@ -485,7 +485,7 @@ const Todo = () => {
           ));
         }
       } else {
-        const response = await axios.post("http://localhost:8000/todo/settodo", 
+        const response = await axios.post("https://todo-server-urcf.onrender.com/todo/settodo", 
           formData,
           { headers: { Authorization: `Bearer ${authToken}` }}
         );
@@ -515,7 +515,7 @@ const Todo = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this todo?')) {
       try {
-        await axios.post("http://localhost:8000/todo/deletetodo",
+        await axios.post("https://todo-server-urcf.onrender.com/todo/deletetodo",
           { id },
           { headers: { Authorization: `Bearer ${authToken}` }}
         );
